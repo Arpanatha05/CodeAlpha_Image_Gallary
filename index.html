@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Image Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🌟 Stunning Image Gallery</h1>
+    <div class="filter-buttons">
+      <button class="active" onclick="filterImages('all')">All</button>
+      <button onclick="filterImages('nature')">Nature</button>
+      <button onclick="filterImages('animals')">Animals</button>
+      <button onclick="filterImages('city')">City</button>
+    </div>
+  </header>
+
+  <section class="gallery">
+    <div class="image-card nature"><img src="n1.jpeg" alt="Nature"></div>
+    <div class="image-card animals"><img src="a1.jpeg" alt="Animals"></div>
+    <div class="image-card nature"><img src="n2.jpeg" alt="Nature"></div>
+    <div class="image-card animals"><img src="a2.jpeg" alt="Animals"></div>
+    <div class="image-card city"><img src="c1.jpeg" alt="City"></div>
+    <div class="image-card city"><img src="c2.jpg" alt="City"></div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" alt="Large View">
+    <div class="lightbox-nav">
+      <span class="prev" onclick="navigate(-1)">&#10094;</span>
+      <span class="next" onclick="navigate(1)">&#10095;</span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

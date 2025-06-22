@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced Image Gallery</title>
+  <link rel="stylesheet" href="first.css" />
+</head>
+<body>
+
+  <h1>📷 Custom Image Gallery</h1>
+
+  <div class="controls">
+    <input type="file" id="imageInput" accept="image/*" />
+    <input type="text" id="categoryInput" placeholder="Enter Category" />
+    <button onclick="uploadImage()">Add to Gallery</button>
+    <button onclick="sortByDate()">Sort by Date</button>
+  </div>
+
+  <div class="gallery" id="gallery"></div>
+
+  <!-- Context Menu -->
+  <div class="context-menu" id="contextMenu">
+    <button onclick="cutImage()">✂️ Cut</button>
+    <button onclick="cropImage()">📐 Crop</button>
+    <button onclick="editImage()">🖊️ Edit</button>
+    <button onclick="sendImage()">📤 Send</button>
+  </div>
+
+  <script src="first.js"></script>
+</body>
+</html>
