@@ -1,3 +1,4 @@
+// this is main body js
 const fileInput = document.getElementById('fileInput');
     const gallery = document.getElementById('gallery');
     const modal = document.getElementById('modal');
@@ -107,4 +108,7 @@ const fileInput = document.getElementById('fileInput');
         shareOptions.innerHTML = '';
       }
     }
-  
+   function goToNewPage() {
+      // Redirect to another HTML file in the same folder
+      window.location.href = "sign.html";
+    }
