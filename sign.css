@@ -93,4 +93,9 @@ button:hover{
   height: 550px;
   width: 400px;
   }
+  .signup{
+	position: relative;
+	width:1000px;
+	height: 100%;
+}
 }
