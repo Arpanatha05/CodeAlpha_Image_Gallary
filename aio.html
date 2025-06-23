@@ -82,7 +82,6 @@
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      flex-direction: column;
     }
 
     .modal-content {
@@ -135,11 +134,6 @@
 
     .share-options {
       margin-top: 10px;
-      display: none;
-    }
-
-    .share-options.active {
-      display: block;
     }
 
     .share-options a {
@@ -185,7 +179,6 @@
     </div>
     <div class="modal-buttons">
       <button onclick="closeModal()">Close</button>
-      <button onclick="toggleShareOptions()">Share</button>
       <div class="share-options" id="shareOptions"></div>
     </div>
   </div>
@@ -248,16 +241,10 @@
       closeModal();
     }
 
-    // function sortByDate() {
-    //   images.sort((a, b) => new Date(a.date) - new Date(b.date));
-    //   renderGallery();
-    // }
     function sortByDate() {
-  images.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort newest to oldest
-  saveImages(); // Save sorted order
-  renderGallery(); // Refresh the gallery
-}
-
+      images.sort((a, b) => new Date(a.date) - new Date(b.date));
+      renderGallery();
+    }
 
     function saveImages() {
       localStorage.setItem("galleryImages", JSON.stringify(images));
@@ -267,7 +254,7 @@
       currentIndex = index;
       modalImage.src = images[currentIndex].src;
       modal.style.display = 'flex';
-      shareOptions.classList.remove('active');
+      updateShareOptions();
     }
 
     function closeModal() {
@@ -277,28 +264,23 @@
     function prevImage() {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       modalImage.src = images[currentIndex].src;
-      shareOptions.classList.remove('active');
+      updateShareOptions();
     }
 
     function nextImage() {
       currentIndex = (currentIndex + 1) % images.length;
       modalImage.src = images[currentIndex].src;
-      shareOptions.classList.remove('active');
+      updateShareOptions();
     }
 
-    function toggleShareOptions() {
-      shareOptions.classList.toggle('active');
-      if (shareOptions.classList.contains('active')) {
-        const url = encodeURIComponent(images[currentIndex].src);
-        shareOptions.innerHTML = `
-          <a href="https://wa.me/?text=${url}" target="_blank">WhatsApp</a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank">Facebook</a>
-          <a href="https://twitter.com/intent/tweet?url=${url}" target="_blank">Twitter</a>
-          <a href="${url}" download>Download</a>
-        `;
-      } else {
-        shareOptions.innerHTML = '';
-      }
+    function updateShareOptions() {
+      const url = encodeURIComponent(images[currentIndex].src);
+      shareOptions.innerHTML = `
+        <a href="https://wa.me/?text=${url}" target="_blank">WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url=${url}" target="_blank">Twitter</a>
+        <a href="${url}" download>Download</a>
+      `;
     }
   </script>
 

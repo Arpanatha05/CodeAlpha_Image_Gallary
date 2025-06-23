@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Image Gallery</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery Project</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <section class="top">
 
-  <header>
-    <h1>🌟 Stunning Image Gallery</h1>
-    <div class="filter-buttons">
-      <button class="active" onclick="filterImages('all')">All</button>
-      <button onclick="filterImages('nature')">Nature</button>
-      <button onclick="filterImages('animals')">Animals</button>
-      <button onclick="filterImages('city')">City</button>
-    </div>
-  </header>
-
-  <section class="gallery">
-    <div class="image-card nature"><img src="n1.jpeg" alt="Nature"></div>
-    <div class="image-card animals"><img src="a1.jpeg" alt="Animals"></div>
-    <div class="image-card nature"><img src="n2.jpeg" alt="Nature"></div>
-    <div class="image-card animals"><img src="a2.jpeg" alt="Animals"></div>
-    <div class="image-card city"><img src="c1.jpeg" alt="City"></div>
-    <div class="image-card city"><img src="c2.jpg" alt="City"></div>
   </section>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img class="lightbox-img" id="lightbox-img" alt="Large View">
-    <div class="lightbox-nav">
-      <span class="prev" onclick="navigate(-1)">&#10094;</span>
-      <span class="next" onclick="navigate(1)">&#10095;</span>
-    </div>
+  <section class="input">
+    <div class="upload-controls">
+    <input type="file" id="fileInput" accept="image/*">
+    <button onclick="addToGallery()">Add to Gallery</button>
+    <button onclick="sortByDate()">Sort by Date</button>
   </div>
 
+  <div class="gallery" id="gallery"></div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="arrow-btn arrow-left" onclick="prevImage()">&#10094;</button>
+      <img id="modalImage" src="" alt="Preview">
+      <button class="arrow-btn arrow-right" onclick="nextImage()">&#10095;</button>
+    </div>
+    <div class="modal-buttons">
+      <button onclick="closeModal()">Close</button>
+      <button onclick="toggleShareOptions()">Share</button>
+      <div class="share-options" id="shareOptions"></div>
+    </div>
+  </div>
+  </section>
   <script src="app.js"></script>
 </body>
 </html>
