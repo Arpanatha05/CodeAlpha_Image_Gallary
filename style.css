@@ -1,3 +1,4 @@
+  /* this is main body part of the webpage */
   html, body {
       height: 100%;
       margin: 0;
@@ -185,7 +186,7 @@
       border-radius: 5px;
     }
 
-    /* header part */
+    /* header part of the web page */
  header{
     padding-top: 80px;
  }
@@ -223,13 +224,13 @@
   stroke-dasharray: 760;
 }
 
-/* button css */
+/* button css  of the sign in button*/
  .sign {
       position: relative;
       padding: 14px 36px;
       font-size: 12px;
       font-weight: bold;
-      color: #00f7ff;
+      color: #0f0c29;
       background: #0f0f1a;
       border: none;
       cursor: pointer;
@@ -240,6 +241,7 @@
       overflow: hidden;
       margin-top: 30px;
       margin-left: 1250px;
+      font-weight: 900;
 }
     
 
@@ -250,7 +252,7 @@
       padding: 2px;
       background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffff);
       border-radius: 12px;
-      -webkit-mask:
+      -webkit-mask-:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
@@ -261,11 +263,9 @@
 
   
 
-    .sign:hover {
-      color: #ffffff;
-    }
-
     
+
+    /* this is responsive part of the website */
 
     @media (max-width: 768px) {
       .gallery {
