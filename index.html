@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Image</title>
+    <title>New Image Gallery</title>
     <linK rel="stylesheet" href="style.css">
 </head>
 <body>
-      <button class="sign">click here</button>
+      <button class="sign" onclick="goToNewPage()">Sign In</button>
 <header>
    
     <div class="svg-wrapper">
   <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
     <rect class="shape" height="60" width="320" />
-    <div class="text">ZACH SAUCIER</div>
+    <div class="text">Image Gallery</div>
   </svg>
 </div>
 </header>
@@ -24,8 +24,8 @@
       Choose File
       <input type="file" id="fileInput" accept="image/*" multiple>
     </label>
-    <button onclick="addToGallery()">Add to Gallery</button>
-    <button onclick="sortByDate()">Sort by Date</button>
+    <button class="btn1" onclick="addToGallery()">Add to Gallery</button>
+    <button class="btn1" onclick="sortByDate()">Sort by Date</button>
   </div>
 
   <div class="gallery" id="gallery"></div>
