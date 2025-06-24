@@ -1,5 +1,4 @@
-// this is main body js
-const fileInput = document.getElementById('fileInput');
+ const fileInput = document.getElementById('fileInput');
     const gallery = document.getElementById('gallery');
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modalImage');
@@ -16,24 +15,25 @@ const fileInput = document.getElementById('fileInput');
     }
 
     function addToGallery() {
-      const file = fileInput.files[0];
-      if (!file) {
-        alert("Please choose an image file.");
+      const files = fileInput.files;
+      if (!files.length) {
+        alert("Please choose image files.");
         return;
       }
-
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const imageData = {
-          src: e.target.result,
-          date: new Date().toISOString()
+      Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const imageData = {
+            src: e.target.result,
+            date: new Date().toISOString()
+          };
+          images.push(imageData);
+          saveImages();
+          renderGallery();
         };
-        images.push(imageData);
-        saveImages();
-        renderGallery();
-        fileInput.value = '';
-      };
-      reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
+      });
+      fileInput.value = '';
     }
 
     function renderGallery() {
@@ -56,16 +56,11 @@ const fileInput = document.getElementById('fileInput');
       closeModal();
     }
 
-    // function sortByDate() {
-    //   images.sort((a, b) => new Date(a.date) - new Date(b.date));
-    //   renderGallery();
-    // }
     function sortByDate() {
-  images.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort newest to oldest
-  saveImages(); // Save sorted order
-  renderGallery(); // Refresh the gallery
-}
-
+      images.sort((a, b) => new Date(b.date) - new Date(a.date));
+      saveImages();
+      renderGallery();
+    }
 
     function saveImages() {
       localStorage.setItem("galleryImages", JSON.stringify(images));
@@ -102,13 +97,13 @@ const fileInput = document.getElementById('fileInput');
           <a href="https://wa.me/?text=${url}" target="_blank">WhatsApp</a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank">Facebook</a>
           <a href="https://twitter.com/intent/tweet?url=${url}" target="_blank">Twitter</a>
-          <a href="${url}" download>Download</a>
+          <a href="${images[currentIndex].src}" download="image.jpg">Download</a>
         `;
       } else {
         shareOptions.innerHTML = '';
       }
     }
-   function goToNewPage() {
+       function goToNewPage() {
       // Redirect to another HTML file in the same folder
       window.location.href = "sign.html";
     }

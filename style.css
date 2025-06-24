@@ -1,6 +1,5 @@
-  /* this is main body css */
-  html,body {
-       height: 100%;
+  html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
@@ -10,7 +9,7 @@
 
     h1 {
       text-align: center;
-      margin-bottom: 20px;
+      margin: 20px;
     }
 
     .upload-controls {
@@ -18,16 +17,26 @@
       margin-bottom: 30px;
     }
 
-    .upload-controls input[type="file"],
+    .custom-file-input {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .custom-file-input input[type="file"] {
+      display: none;
+    }
+
     .upload-controls button {
       padding: 10px 15px;
       margin: 5px;
       font-size: 1rem;
       border-radius: 5px;
       border: 1px solid #ccc;
-    }
-
-    .upload-controls button {
       background: #007bff;
       color: white;
       cursor: pointer;
@@ -36,6 +45,7 @@
     .gallery {
       column-count: 3;
       column-gap: 16px;
+      padding: 0 20px;
     }
 
     .gallery-item {
@@ -147,6 +157,45 @@
       background: #555;
       border-radius: 5px;
     }
+ header{
+    padding-top: 80px;
+ }
+.svg-wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+	  margin: 0 auto;
+  width: 320px;  
+}
+.shape {
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: #19f6e8;
+  border-bottom: 5px solid black;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+.text {
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 8px;
+  color: black;
+  top: -48px;
+  position: relative;
+  pointer-events: none;
+  text-align: center;
+}
+.shape:hover {
+  stroke-width: 2px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 760;
+}
+.sign{
+    margin-left: 1350px;
+    margin-top: 80px;
+}
 
     @media (max-width: 768px) {
       .gallery {
@@ -158,106 +207,13 @@
       .gallery {
         column-count: 1;
       }
+      .sign{
+  margin-left: 0px;
+  margin-top: 40px;
+  margin-left: 280px;
+  
     }
-
-    /* this is top part of the web */
-
-    .top{
-      padding-top: 20px;
-     display: flex;
-     justify-content: flex-start;
-      
+    .header{
+        padding-top: 0px;
     }
-    html, body {
-  background: rgb(20,20,20);
-  text-align: center;
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
 }
-::selection {
-  background: #19f6e8;
-}
-.svg-wrapper {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0 auto;
-  width: 500px;
-}
-.shape1,
-.shape2 {
-  stroke-dasharray: 1120;
-  stroke-width: 5px;
-  fill: transparent;
-  stroke: #19f6e8;
-  border-bottom: 5px solid black;
-  transition-timing-function: linear;
-  transition: stroke-dashoffset 4s, stroke-dasharray 4s;
-}
-.shape1 {
-  stroke-dashoffset: 1120;
-}
-.shape2 {
-  stroke-dashoffset: -1120;
-}
-.text {
-  font-family: 'Roboto Condensed';
-  font-size: 22px;
-  line-height: 32px;
-  letter-spacing: 8px;
-  color: #fff;
-  top: -48px;
-  position: relative;
-}
-.svg-wrapper:hover .shape1,
-.svg-wrapper:hover .shape2 {
-  stroke-dashoffset: 0;
-  stroke-dasharray: 1120;
-}
-
-
-
-
-
-
-/* CSS */
-.sign{
- margin-left: 530px;
-
-}
-.sign button{
-  height: 50px;
-  width: 85px;
-   background-color: #1a1a1a;
-    color: #00ffee;
-    margin-top: 30px;
-    border: 1px solid #00ffee;
-    border-radius: 10px;
-    font-weight: 300;
-    animation: slideright 1s ease forwards;
-    animation-delay: 1s;
-}
-
-  .sign button:hover{
-    background-color: #00ffee;
-    color: black;
-    filter: drop-shadow(0px 0px 6px #00ffee);
-  }
-
-@media (max-width: 768px) {
-      
-  .svg-wrapper{
-    display: inline;
-    
-  }
-  .top{
-    padding-top: 10px;
-  }
-  .sign{
-    margin-left: 0px;
-    margin-bottom: 40px;
-    margin-left: 125px;
-  margin-top: 0px;
-    }
-  }
