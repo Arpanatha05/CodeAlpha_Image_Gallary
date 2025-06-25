@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Logo Border</title>
+  <style>
+ 
+
+    .logo {
+      padding: 8px;
+      background: #111;
+      border-radius: 16px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      z-index: -1;
+      background: linear-gradient(
+        60deg,
+        #ff0066,
+        #ffcc00,
+        #33cc33,
+        #00cccc,
+        #3366ff,
+        #cc33ff,
+        #ff0066
+      );
+      background-size: 400% 400%;
+      animation: borderAnimation 8s linear infinite;
+      border-radius: 20px;
+    }
+
+    @keyframes borderAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .logo img {
+      display: block;
+      width: 150px;
+      height: auto;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="logo.jpg" alt="Logo Image">
+  </div>
+
+</body>
+</html>

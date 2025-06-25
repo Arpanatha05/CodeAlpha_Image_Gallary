@@ -224,6 +224,14 @@
   stroke-dasharray: 760;
 }
 
+
+
+.arp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
 /* button css  of the sign in button*/
  .sign {
       position: relative;
@@ -239,8 +247,8 @@
       border-radius: 12px;
       z-index: 1;
       overflow: hidden;
-      margin-top: 30px;
-      margin-left: 1250px;
+      
+      margin-left: 300px;
       font-weight: 900;
 }
     
@@ -328,6 +336,177 @@ margin-left: 100px;
   color: #aaa;
 }
 
+
+/* this is for .logo */
+
+    .logo {
+      position: relative;
+      display: inline-block;
+      padding: 4px;
+      border-radius: 16px;
+      z-index: 0;
+      margin-top: 60px;
+      
+      height: 80px;
+      width: 80px;
+      margin-right: 150px;
+      
+
+    }
+
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+        left: -1px;
+        right: -1px;
+        bottom: -1px;
+
+      z-index: -1;
+      border-radius: 20px;
+      background: linear-gradient(
+        60deg,
+        #ff0066,
+        #ffcc00,
+        #33cc33,
+        #00cccc,
+        #3366ff,
+        #cc33ff,
+        #ff0066
+      );
+      background-size: 400% 400%;
+      animation: borderAnimation 8s linear infinite;
+    }
+
+    @keyframes borderAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .logo img {
+      display: block;
+      width: 80px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+
+
+/* this is menu bar */
+    .menu-container {
+      position: relative;
+      margin-right: 600px;
+      margin-top: 50px;
+     
+    }
+
+    #menuButton {
+      width: 70px;
+      height: 70px;
+      font-size: 28px;
+      border: none;
+      background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
+      color: #fff;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #menuButton:hover {
+      background: linear-gradient(145deg, #444, #555);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    }
+
+    .menu-items {
+      position: absolute;
+      top: 80px;
+      left: -60px;
+      width: 180px;
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeIn 0.3s ease-in-out;
+      z-index: 10;
+    }
+
+    .menu-items button {
+      padding: 14px 20px;
+      background: transparent;
+      color: #fff;
+      border: none;
+      text-align: left;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-items button:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(8px);
+      font-weight: bold;
+      color: #00ffe0;
+    }
+
+    .menu-items button:last-child {
+      border-bottom: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-content {
+      margin-top: 40px;
+      width: 80%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      text-align: center;
+      display: none;
+    }
+
+    .page-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .page-content h1 {
+      margin-top: 0;
+      font-size: 28px;
+      color: #00ffe0;
+    }
+
+    .page-content p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
   
 
     
@@ -356,7 +535,7 @@ margin-left: 100px;
       .sign{
         margin-left: 0px;
         margin-top: 40px;
-        margin-left: 280px;
+        margin-left: 130px;
         
     }
     .header{
@@ -382,5 +561,25 @@ margin-left: 0px;
 .social-icons{
   margin-top: 5px;
 }
+.logo{
+  margin-left: 2px;
+}
+.logo{
+  margin-right: 0px;
+  margin-top: 10px;
 
+}
+.menu-container{
+  margin-right: 0px;
+  margin-top: 10px;
+}
+.sign{
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+.arp{
+  gap: 50px;
+
+}
 }

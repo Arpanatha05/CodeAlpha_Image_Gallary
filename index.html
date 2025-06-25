@@ -9,9 +9,23 @@
 
 </head>
 <body>
-  <div class="logo"></div>
-  <!-- this is header part of the webpage -->
+  <div class="arp">
+ <div class="logo" onclick="goToNewPage()">
+    <img src="logo.jpg" alt="Logo Image">
+  </div>
+<div class="menu-container">
+  <button id="menuButton">☰</button>
+  <div class="menu-items" id="menuItems">
+    <button onclick="showPage('home')">🏠 Home</button>
+    <button onclick="showPage('about')">ℹ️ About Us</button>
+    <button onclick="showPage('contact')">📞 Contact Us</button>
+  </div>
+</div>
+
+  
       <button class="sign" onclick="goToNewPage()">Sign In</button>
+  </div>
+ <!-- this is header part of the webpage -->
 <header>
    
     <div class="svg-wrapper">

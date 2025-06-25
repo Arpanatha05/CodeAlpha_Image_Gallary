@@ -142,3 +142,37 @@
       // Redirect to another HTML file in the same folder
       window.location.href = "sign.html";
     }
+      function goToNewPage() {
+      // Redirect to another HTML file in the same folder
+      window.location.href = "index.html";
+    }
+
+
+    //thid is menu button script
+     const menuButton = document.getElementById("menuButton");
+  const menuItems = document.getElementById("menuItems");
+  const contents = {
+    home: document.getElementById("contentHome"),
+    about: document.getElementById("contentAbout"),
+    contact: document.getElementById("contentContact")
+  };
+
+  let isMenuOpen = false;
+
+  menuButton.addEventListener("click", () => {
+    isMenuOpen = !isMenuOpen;
+    menuItems.style.display = isMenuOpen ? "flex" : "none";
+  });
+
+  function showPage(page) {
+    // Hide all content sections
+    Object.values(contents).forEach(div => div.classList.remove("active"));
+    // Show the selected one
+    contents[page].classList.add("active");
+    // Close the menu
+    menuItems.style.display = "none";
+    isMenuOpen = false;
+  }
+
+  // Optional: Show Home by default
+  showPage('home');
