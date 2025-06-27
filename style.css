@@ -1,11 +1,181 @@
-  /* this is main body part of the webpage */
+  /*This is navbar css for ig webpage*/
+:root {
+  --primary: #00bcd4;
+  --bg: #0f0c29;
+  --nav-bg: #1a1a2e;
+  --text: #f1f1f1;
+}
+nav {
+  background: var(--nav-bg);
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  height: 50px;
+  border-radius: 50%;
+  padding: 2px;
+  border: 2px solid var(--primary);
+  animation: glowBorder 2s linear infinite;
+}
+
+@keyframes glowBorder {
+  0% {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.hamburger {
+  width: 30px;
+  height: 22px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+
+.bar {
+  height: 4px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger :hover .bar{
+  background-color:#00bcd4 ;
+}
+
+/* When menu is active (cross) */
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--nav-bg);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    margin-top: 27px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+ /* header part of the web page */
+ header{
+    padding-top: 80px;
+ }
+.svg-wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width: 320px; 
+  color: #fff; 
+}
+.shape {
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: #19f6e8;
+  border-bottom: 5px solid black;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+.text {
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 8px;
+  color: #fff;
+  top: -48px;
+  position: relative;
+  pointer-events: none;
+  text-align: center;
+}
+.shape:hover {
+  stroke-width: 2px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 760;
+}
+
+  
+  /* this is main body part of the ig webpage */
   html, body {
       height: 100%;
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-
       overflow-y: auto;
       color: #fff;
     }
@@ -42,17 +212,6 @@
       display: none;
     }
 
-    /* .upload-controls button {
-      padding: 10px 15px;
-      margin: 5px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      background: #007bff;
-      color: white;
-      cursor: pointer;
-    } */
-
     .gallery {
       column-count: 3;
       column-gap: 16px;
@@ -75,6 +234,19 @@
     color: black;
     filter: drop-shadow(0px 0px 6px #00ffee);
   }
+  .favourite-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 
     .gallery-item {
       break-inside: avoid;
@@ -175,101 +347,37 @@
     .share-options.active {
       display: block;
     }
-
-    .share-options a {
-      display: inline-block;
-      margin: 5px;
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
-      background: #555;
-      border-radius: 5px;
-    }
-
-    /* header part of the web page */
- header{
-    padding-top: 80px;
- }
-.svg-wrapper {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-	  margin: 0 auto;
-  width: 320px; 
-  color: #fff; 
-}
-.shape {
-  stroke-dasharray: 140 540;
-  stroke-dashoffset: -474;
-  stroke-width: 8px;
-  fill: transparent;
-  stroke: #19f6e8;
-  border-bottom: 5px solid black;
-  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
-}
-.text {
-  font-family: 'Roboto Condensed';
-  font-size: 22px;
-  line-height: 32px;
-  letter-spacing: 8px;
-  color: #fff;
-  top: -48px;
-  position: relative;
-  pointer-events: none;
-  text-align: center;
-}
-.shape:hover {
-  stroke-width: 2px;
-  stroke-dashoffset: 0;
-  stroke-dasharray: 760;
-}
-
-
-
-.arp{
-  display: flex;
-  justify-content: center;
+.share-options a {
+  display: inline-flex;
   align-items: center;
- 
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin: 8px;
+  font-size: 18px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: white;
+  background: #444;
+  transition: background 0.3s, transform 0.2s;
 }
-/* button css  of the sign in button*/
- .sign {
-      position: relative;
-      padding: 14px 36px;
-      font-size: 12px;
-      font-weight: bold;
-      color: #0f0c29;
-      background: #0f0f1a;
-      border: none;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 12px;
-      z-index: 1;
-      overflow: hidden;
-      
-      margin-left: 300px;
-      font-weight: 900;
+
+.share-options a:hover {
+  transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
-    
 
-    .sign::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      padding: 2px;
-      background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffff);
-      border-radius: 12px;
-      -webkit-mask-:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-      z-index: -1;
-      transition: transform 0.4s ease;
-    }
+.share-options a.whatsapp { background: #25D366; }
+.share-options a.twitter { background: #1DA1F2; }
+.share-options a.facebook { background: #4267B2; }
+.share-options a.download { background: #6c757d; }
+.share-options a.linkedin { background: #0077B5; }
+.share-options a.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
 
-  /* footer part of the webpage */
+
+  /* footer part of the ig webpage */
 .footer {
   background: #111;
   color: #eee;
@@ -337,192 +445,13 @@ margin-left: 100px;
 }
 
 
-/* this is for .logo */
-
-    .logo {
-      position: relative;
-      display: inline-block;
-      padding: 4px;
-      border-radius: 16px;
-      z-index: 0;
-      margin-top: 60px;
-      
-      height: 80px;
-      width: 80px;
-      margin-right: 150px;
-      
-
-    }
-
-    .logo::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-        left: -1px;
-        right: -1px;
-        bottom: -1px;
-
-      z-index: -1;
-      border-radius: 20px;
-      background: linear-gradient(
-        60deg,
-        #ff0066,
-        #ffcc00,
-        #33cc33,
-        #00cccc,
-        #3366ff,
-        #cc33ff,
-        #ff0066
-      );
-      background-size: 400% 400%;
-      animation: borderAnimation 8s linear infinite;
-    }
-
-    @keyframes borderAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .logo img {
-      display: block;
-      width: 80px;
-      height: auto;
-      border-radius: 12px;
-    }
-
-
-
-/* this is menu bar */
-    .menu-container {
-      position: relative;
-      margin-right: 600px;
-      margin-top: 50px;
-     
-    }
-
-    #menuButton {
-      width: 70px;
-      height: 70px;
-      font-size: 28px;
-      border: none;
-      background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
-      color: #fff;
-      cursor: pointer;
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-      transition: all 0.3s ease;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #menuButton:hover {
-      background: linear-gradient(145deg, #444, #555);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-    }
-
-    .menu-items {
-      position: absolute;
-      top: 80px;
-      left: -60px;
-      width: 180px;
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(12px);
-      border-radius: 14px;
-      overflow: hidden;
-      display: none;
-      flex-direction: column;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      animation: fadeIn 0.3s ease-in-out;
-      z-index: 10;
-    }
-
-    .menu-items button {
-      padding: 14px 20px;
-      background: transparent;
-      color: #fff;
-      border: none;
-      text-align: left;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .menu-items button:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateX(8px);
-      font-weight: bold;
-      color: #00ffe0;
-    }
-
-    .menu-items button:last-child {
-      border-bottom: none;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .page-content {
-      margin-top: 40px;
-      width: 80%;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.3);
-      text-align: center;
-      display: none;
-    }
-
-    .page-content.active {
-      display: block;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .page-content h1 {
-      margin-top: 0;
-      font-size: 28px;
-      color: #00ffe0;
-    }
-
-    .page-content p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-  
-
-    
-
-    /* this is responsive part of the website */
+    /* this is responsive part of the ig website */
 
     @media (max-width: 768px) {
       .gallery {
         column-count: 2;
       }
-        .sign{
-          margin-left: 0px;
-          margin-top: 40px;
-          margin-left: 580px;
-          
-    }
+    
     .header{
         padding-top: 0px;
     }
@@ -573,12 +502,7 @@ margin-left: 0px;
       .gallery {
         column-count: 1;
       }
-      .sign{
-        margin-left: 0px;
-        margin-top: 40px;
-        margin-left: 130px;
-        
-    }
+     
     .header{
         padding-top: 0px;
     }
@@ -610,17 +534,5 @@ margin-left: 0px;
   margin-top: 10px;
 
 }
-.menu-container{
-  margin-right: 0px;
-  margin-top: 10px;
-}
-.sign{
-  margin-left: 0px;
-  margin-top: 10px;
-}
 
-.arp{
-  gap: 50px;
-
-}
 }

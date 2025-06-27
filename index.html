@@ -7,25 +7,33 @@
     <linK rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
 </head>
 <body>
-  <div class="arp">
- <div class="logo" onclick="goToNewPage()">
-    <img src="logo.jpg" alt="Logo Image">
+<!-- This is navbar html fir ig webpage -->
+<nav>
+  <div class="logo" onclick="goToNewPage() ">
+    <img src="logo.jpg" alt="PixSpace Logo" />
+    
   </div>
-<div class="menu-container">
-  <button id="menuButton">☰</button>
-  <div class="menu-items" id="menuItems">
-    <button onclick="showPage('home')">🏠 Home</button>
-    <button onclick="showPage('about')">ℹ️ About Us</button>
-    <button onclick="showPage('contact')">📞 Contact Us</button>
-  </div>
-</div>
 
-  
-      <button class="sign" onclick="goToNewPage()">Sign In</button>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
   </div>
- <!-- this is header part of the webpage -->
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="sign.html">Sign In</a>
+  </div>
+</nav>
+
+
+
+ <!-- this is header part of the ig webpage -->
 <header>
    
     <div class="svg-wrapper">
@@ -36,15 +44,17 @@
 </div>
 </header>
 
-<!-- this is input part of the webpage -->
+<!-- this is input part of the  igwebpage -->
  
   <div class="upload-controls">
     <label class="custom-file-input">
-      Choose File
+      Choose photo
       <input type="file" id="fileInput" accept="image/*" multiple>
     </label>
     <button class="btn1" onclick="addToGallery()">Add to Gallery</button>
     <button class="btn1" onclick="sortByDate()">Sort by Date</button>
+    <button class="btn1" onclick="toggleShowFavourites()" id="favouriteToggleBtn">Show Favourites</button>
+
   </div>
 
   <div class="gallery" id="gallery"></div>
@@ -61,7 +71,9 @@
       <div class="share-options" id="shareOptions"></div>
     </div>
   </div>
- <!-- Footer Start -->
+
+
+ <!-- Footer hutml part of my ig web page -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-about">
@@ -94,7 +106,7 @@
     <p>&copy; 2025 Arpan's Image Gallery. Crafted with ❤️ by Arpan Atha.</p>
   </div>
 </footer>
-<!-- Footer End -->
+
 
 
   <script src="script.js"></script>
