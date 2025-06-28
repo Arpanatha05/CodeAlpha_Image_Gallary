@@ -224,10 +224,25 @@ function toggleShowFavourites() {
 function openCustomEditor(index) {
   editImage = new Image();
   editImage.onload = function() {
-    editCanvas.width = editImage.width;
-    editCanvas.height = editImage.height;
-    editCtx.drawImage(editImage, 0, 0);
-    editBrightness = 0;
+    const maxWidth = window.innerWidth * 0.8;
+    const maxHeight = window.innerHeight * 0.8;
+    let width = editImage.width;
+    let height = editImage.height;
+    const aspect = width / height;
+
+    if (width > maxWidth) {
+      width = maxWidth;
+      height = width / aspect;
+    }
+    if (height > maxHeight) {
+      height = maxHeight;
+      width = height * aspect;
+    }
+
+    editCanvas.width = width;
+    editCanvas.height = height;
+    editCtx.drawImage(editImage, 0, 0, width, height);
+
     document.getElementById('customEditorModal').style.display = 'block';
   }
   editImage.src = images[index].src;
