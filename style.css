@@ -109,28 +109,7 @@ nav {
 }
 
 
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: var(--nav-bg);
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    display: none;
-  }
 
-  .nav-links.active {
-    display: flex;
-    margin-top: 27px;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
 
  /* header part of the web page */
  header{
@@ -489,6 +468,28 @@ margin-left: 100px;
     /* this is responsive part of the ig website */
 
     @media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--nav-bg);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    margin-top: 24px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+    @media (max-width: 768px) {
       .gallery {
         column-count: 2;
       }
@@ -575,5 +576,9 @@ margin-left: 0px;
   margin-top: 10px;
 
 }
+.nav-links :active{
+  margin-top: 1000px;
+}
+
 
 }
