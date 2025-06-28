@@ -1,5 +1,5 @@
   /*This is navbar css for ig webpage*/
-  
+
 :root {
   --primary: #00bcd4;
   --bg: #0f0c29;
@@ -17,6 +17,7 @@ nav {
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
+
 
 .logo {
   display: flex;
