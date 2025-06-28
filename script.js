@@ -7,6 +7,12 @@
   let showFavourites = false;
   let currentIndex = 0;
   let images = [];
+  let editCanvas = document.getElementById('editCanvas');
+  let editCtx = editCanvas.getContext('2d');
+  let editImage = null;
+  let editBrightness = 0;
+
+
 
   window.onload = () => {
     const saved = localStorage.getItem("galleryImages");
@@ -160,10 +166,6 @@ function toggleShowFavourites() {
   }
 
 
-   
-
-
-   
      const menuButton = document.getElementById("menuButton");
   const menuItems = document.getElementById("menuItems");
   const contents = {
@@ -214,5 +216,83 @@ function toggleShowFavourites() {
   hamburger.classList.toggle('active');
   navMenu.classList.toggle('active');
 }
+
+
+// this is edit area for the webpage
+
+
+function openCustomEditor(index) {
+  editImage = new Image();
+  editImage.onload = function() {
+    editCanvas.width = editImage.width;
+    editCanvas.height = editImage.height;
+    editCtx.drawImage(editImage, 0, 0);
+    editBrightness = 0;
+    document.getElementById('customEditorModal').style.display = 'block';
+  }
+  editImage.src = images[index].src;
+}
+
+function rotateImage() {
+  const tempCanvas = document.createElement('canvas');
+  const tempCtx = tempCanvas.getContext('2d');
+  tempCanvas.width = editCanvas.width;
+  tempCanvas.height = editCanvas.height;
+  tempCtx.drawImage(editCanvas, 0, 0);
+
+  editCtx.clearRect(0, 0, editCanvas.width, editCanvas.height);
+  editCtx.save();
+  editCtx.translate(editCanvas.width / 2, editCanvas.height / 2);
+  editCtx.rotate(Math.PI / 2);
+
+  editCtx.drawImage(tempCanvas, -editCanvas.height / 2, -editCanvas.width / 2, editCanvas.height, editCanvas.width);
+
+  editCtx.restore();
+}
+
+
+function applyGrayScale() {
+  const imageData = editCtx.getImageData(0, 0, editCanvas.width, editCanvas.height);
+  const data = imageData.data;
+  for (let i = 0; i < data.length; i += 4) {
+    const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+    data[i] = data[i + 1] = data[i + 2] = avg;
+  }
+  editCtx.putImageData(imageData, 0, 0);
+}
+
+function adjustBrightness(amount) {
+  const imageData = editCtx.getImageData(0, 0, editCanvas.width, editCanvas.height);
+  const data = imageData.data;
+  for (let i = 0; i < data.length; i += 4) {
+    data[i] += amount;
+    data[i + 1] += amount;
+    data[i + 2] += amount;
+  }
+  editCtx.putImageData(imageData, 0, 0);
+}
+
+
+
+function resetImage() {
+  editCtx.clearRect(0, 0, editCanvas.width, editCanvas.height);
+  editCtx.drawImage(editImage, 0, 0);
+}
+
+function saveEditedImage() {
+  const dataURL = editCanvas.toDataURL();
+  images[currentIndex].src = dataURL;
+  saveImages();
+  renderGallery();
+  closeCustomEditor();
+}
+
+function closeCustomEditor() {
+  document.getElementById('customEditorModal').style.display = 'none';
+}
+
+
+
+
 
 

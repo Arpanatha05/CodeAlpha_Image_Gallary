@@ -333,7 +333,9 @@ nav {
       margin: 5px;
       padding: 10px 15px;
       border: none;
-      background: #007bff;
+      
+        background: linear-gradient(45deg, #ec4899 , #f97316 );
+
       color: white;
       border-radius: 5px;
       cursor: pointer;
@@ -375,7 +377,17 @@ nav {
 .share-options a.instagram {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
+ #customEditorModal button{
+   margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      
+        background: linear-gradient(45deg, #a855f7  , #6366f1  );
 
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+ }
 
   /* footer part of the ig webpage */
 .footer {
