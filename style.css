@@ -478,11 +478,12 @@ margin-left: 100px;
     text-align: center;
     padding: 20px 0;
     display: none;
+    margin-top: 24px;
   }
 
   .nav-links.active {
     display: flex;
-    margin-top: 24px;
+   
   }
 
   .hamburger {
@@ -534,10 +535,7 @@ margin-left: 0px;
   margin-top: 10px;
 }
 
-.arp{
-  gap: 100px;
 
-}
     }
 
     @media (max-width: 500px) {
@@ -576,9 +574,7 @@ margin-left: 0px;
   margin-top: 10px;
 
 }
-.nav-links :active{
-  margin-top: 1000px;
-}
+
 
 
 }
